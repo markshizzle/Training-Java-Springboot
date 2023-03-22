@@ -31,8 +31,7 @@ public class Employee {
     private Double funcGroup;
     @Column(name = "SALARY",
             nullable = false,
-            precision = 6,
-            scale = 2)
+            precision = 6)
     private Double salary;
     @Column(name = "DOB",
             nullable = false)

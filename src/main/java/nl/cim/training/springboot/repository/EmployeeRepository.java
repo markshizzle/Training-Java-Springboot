@@ -8,7 +8,9 @@ import java.util.List;
 import java.util.Optional;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
-    public List<Employee> findAllByFuncGroupGreaterThanEqual(Double funcGroup);
-    public List<Employee> findByFuncGroupGreaterThan(Double funcGroup);
-    public Optional<Employee> findByEmail(String email);
+    List<Employee> findByEmail(String e);
+
+    Optional<Employee> findById(Long Id);
+
+    List<Employee> findByFuncGroupGreaterThan(Double x);
 }

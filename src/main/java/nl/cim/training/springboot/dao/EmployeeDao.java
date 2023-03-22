@@ -6,7 +6,6 @@ import nl.cim.training.springboot.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -20,6 +19,14 @@ public class EmployeeDao {
         return employeeRepository.findAll();
     }
 
+    public List<Employee> findByEmail(String e) {
+        return employeeRepository.findByEmail(e);
+    }
+
+    public List<Employee> getFuncGroupGreaterThan(Double x) {
+        return employeeRepository.findByFuncGroupGreaterThan(x);
+    }
+
     public Employee getEmployee(Long id) throws EmployeeNotFoundException {
         Optional<Employee> emp = employeeRepository.findById(id);
 
@@ -28,6 +35,7 @@ public class EmployeeDao {
 
         return emp.get();
     }
-
     private static List<Employee> employees = new ArrayList<>();
+
+
 }

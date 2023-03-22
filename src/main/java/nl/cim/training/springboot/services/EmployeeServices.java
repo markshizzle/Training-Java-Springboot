@@ -16,5 +16,11 @@ public class EmployeeServices {
         return EmployeeConverter.convert(employeeDao.getAllEmployees());
     }
 
+    public List<EmployeeResponse> getEmployeeByEmail(String e) {
+        return EmployeeConverter.convert(employeeDao.findByEmail(e));
+    }
 
+    public List<EmployeeResponse> getFuncGroupGreaterThan(Double x) {
+        return EmployeeConverter.convert(employeeDao.getFuncGroupGreaterThan(x));
+    }
 }
