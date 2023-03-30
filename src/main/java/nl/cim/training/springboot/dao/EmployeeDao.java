@@ -20,6 +20,7 @@ public class EmployeeDao {
     }
 
     public List<Employee> findByEmail(String e) {
+        // Add exception
         return employeeRepository.findByEmail(e);
     }
 
@@ -37,5 +38,12 @@ public class EmployeeDao {
     }
     private static List<Employee> employees = new ArrayList<>();
 
+    public Employee addEmployee(Employee emp) {
+        return employeeRepository.save(emp);
+    }
 
+    public Employee updateEmployee(Long id, Employee updateEmpReq) {
+        updateEmpReq.setId(id);
+        return employeeRepository.save(updateEmpReq);
+    }
 }

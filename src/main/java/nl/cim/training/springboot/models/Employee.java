@@ -15,8 +15,7 @@ public class Employee {
             nullable = false)
     private String firstName;
     @Column(name = "MIDDLE_NAME",
-            length = 512,
-            nullable = false)
+            length = 512)
     private String middleName;
     @Column(name = "LAST_NAME",
             length = 512,
