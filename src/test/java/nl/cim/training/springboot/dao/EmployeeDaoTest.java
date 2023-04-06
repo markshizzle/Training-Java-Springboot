@@ -1,5 +1,6 @@
 package nl.cim.training.springboot.dao;
 
+
 import nl.cim.training.springboot.exception.EmployeeNotFoundException;
 import nl.cim.training.springboot.models.Employee;
 import nl.cim.training.springboot.repository.EmployeeRepository;
@@ -11,7 +12,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.lang.reflect.Field;
 import java.time.LocalDate;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static org.assertj.core.api.FactoryBasedNavigableListAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
@@ -91,20 +91,20 @@ class EmployeeDaoTest {
 //            Employee expectedEmployee = this.e1;
 //        }
 
-@Test
-void itShouldBeAbleToGiveBackOneEmployee() throws EmployeeNotFoundException {
-    Long wantedId = 1L;
+    @Test
+    void itShouldBeAbleToGiveBackOneEmployee() throws EmployeeNotFoundException {
+        Long wantedId = 1L;
 
-    when(employeeRepository.findById(wantedId)).thenReturn(Optional.of(this.e1));
+        when(employeeRepository.findById(wantedId)).thenReturn(Optional.of(this.e1));
 
-    employeeDao.getEmployee(wantedId);
+        employeeDao.getEmployee(wantedId);
 
-    ArgumentCaptor<Long> empArgCapture = ArgumentCaptor.forClass(Long.class);
-    verify(employeeRepository).findById(empArgCapture.capture());
-    Long captureID = empArgCapture.getValue();
+        ArgumentCaptor<Long> empArgCapture = ArgumentCaptor.forClass(Long.class);
+        verify(employeeRepository).findById(empArgCapture.capture());
+        Long captureID = empArgCapture.getValue();
 
-    assertThat(wantedId).isEqualTo(captureID);
+        assertThat(wantedId).isEqualTo(captureID);
 
+        }
     }
-}
 //}
